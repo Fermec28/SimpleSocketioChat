@@ -1,0 +1,34 @@
+#message{
+	width: 100%
+}
+
+html, body {
+    height:100%;
+}
+
+.message{
+	
+}
+
+.chat-form{
+	position:relative;
+	bottom: 0px;
+}
+.message .sender {
+	font-weight: bolder;
+}
+
+.mymessage{
+	background-color: #FF00FF;
+	text-align: right;
+}
+
+.othermessage{
+	background-color: #2E9AFE;
+	text-align: left;
+}
+
+ul{
+ list-style-type: none; 
+ }
+
