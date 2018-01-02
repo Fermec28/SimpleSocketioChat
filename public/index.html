@@ -4,6 +4,8 @@
 	<title>Chat Aleja Hermosa</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  	 <link href="../lib/css/emoji.css" rel="stylesheet">
 </head>
 <body>
 	<div class= "container">
@@ -11,7 +13,7 @@
 
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 text-center">
-				<ul id="messages-list">
+				<ul id="messages-list" >
 					
 				</ul>
 			</div>
@@ -24,7 +26,9 @@
 				<div class ="chat-form">
 				<form id= "message-form" action="">
 					<div class = "form-group">
-						<textarea id="message" cols="3"></textarea>				
+						<p class="lead emoji-picker-container">
+						<textarea id="message" cols="3" data-emojiable="true"></textarea>				
+						</p>						
 					</div>
 					<button class="btn btn-success">Enviar</button>
 				</form>
@@ -35,6 +39,29 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-	<script type="text/javascript" src="/js/main.js"></script>
+	
+	<!-- ** Don't forget to Add jQuery here ** -->
+  	<script src="lib/js/config.js"></script>
+  	<script src="lib/js/util.js"></script>
+  	<script src="lib/js/jquery.emojiarea.js"></script>
+  	<script src="lib/js/emoji-picker.js"></script>
+
+    <script>
+      $(function() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+          emojiable_selector: '[data-emojiable=true]',
+          assetsPath: '../lib/img/',
+          popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+      });
+    </script>
+
+    <script type="text/javascript" src="/js/main.js"></script>
+
 </body>
 </html>
